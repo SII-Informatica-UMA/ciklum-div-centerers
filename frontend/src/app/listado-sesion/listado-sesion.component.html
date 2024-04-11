@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12"  *ngIf="isClienteOrEntrenador()">
+        <h1 class="text-center">Listado de sesiones</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>ID Plan</th>
+              <th>Fecha inicio</th>
+              <th>Fecha fin</th>
+              <th>Trabajo realizado</th>
+              <th>Vídeo del entrenamiento</th>
+              <th>Imagen del entrenamiento</th>
+              <th>Comentarios</th>
+              <th>Pulsaciones</th>
+              <th>Peso del usuario (kg)</th>
+              <th>Calorías consumidas</th>
+              <th>Tiempo de ejercicio</th>
+              <th>Presencial</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sesion of sesionesfiltrado" class="align-middle">
+              <td>{{sesion.id}}</td>
+              <td>{{sesion.idPlan}}</td>
+              <td>{{sesion.inicio}}</td>
+              <td>{{sesion.fin}}</td>
+              <td>{{sesion.trabajoRealizado}}</td>
+              <td>{{sesion.multimedia[0]}}</td>
+              <td>{{sesion.multimedia[1]}}</td>
+              <td>{{sesion.descripcion}}</td>
+              <td>{{sesion.datosSalud[0]}}</td>
+              <td>{{sesion.datosSalud[1]}}</td>
+              <td>{{sesion.datosSalud[2]}}</td>
+              <td>{{sesion.datosSalud[3]}}</td>
+              <td>{{sesion.presencial?'Sí':'No'}}</td>
+              <td *ngIf="isCliente()"><button class="btn btn-sm btn-outline-primary m-1" (click)="editarSesion(sesion)"><i class="bi bi-pencil-fill"></i></button>
+                <button (click)="eliminarSesion(sesion.id)" class="btn btn-sm btn-outline-danger m-1"><i class="bi bi-trash-fill"></i></button></td>  
+            </tr>
+          </tbody>
+        </table>
+        <button *ngIf="isCliente()" type="button" class="btn btn-outline-success bi bi-plus-lg" style="background-color:  rgba(240, 248, 255, 0.558);" (click)="aniadirSesion()"></button>
+      </div>
+      <div class="col-12" *ngIf="!isClienteOrEntrenador()">
+        <p class="alert alert-danger">No tiene permisos para ver este contenido.</p>
+    </div>
+  </div>

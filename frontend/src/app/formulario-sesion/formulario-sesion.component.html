@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{accion}} sesion</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cierre sesion')"></button>
+  </div>
+  <div class="modal-body">
+    <form class="form-group" novalidate>
+      <label for="plan">Plan de entrenamiento</label>
+      <!--<input required class="form-control" id="plan" name="plan" type="number" [(ngModel)]="sesion.idPlan">
+      -->
+      <select class="form-control" id="plan" name="plan" type="number" [(ngModel)]="sesion.idPlan">
+        <option *ngFor="let idx of planes" [value] = "idx">{{idx}}</option>
+      </select>
+      
+      <option></option>
+      <label for="inicio">Fecha de inicio</label>
+      <input required class="form-control" id="inicio" name="inicio" type="datetime-local" [(ngModel)]="sesion.inicio">
+      <label for="fin">Fecha de fin</label>
+      <input required class="form-control" id="fin" name="fin" type="datetime-local" [(ngModel)]="sesion.fin">
+      <label for="trabajoRealizado">Trabajo realizado</label>
+      <input class="form-control" id="trabajoRealizado" name="trabajoRealizado" [(ngModel)]="sesion.trabajoRealizado" placeholder="Breve descripción del trabajo llevado a cabo">
+      
+      <label for="multimediaVideo">Vídeo del entrenamiento</label>
+      <input class="form-control" id="multimediaVideo" name="multimediaVideo" type="url" [(ngModel)]="sesion.multimedia[0]" placeholder="Introduzca una URL al vídeo">
+      <label for="multimediaImagen">Imagen del entrenamiento</label>
+      <input class="form-control" id="multimediaImagen" name="multimediaImagen" type="url" [(ngModel)]="sesion.multimedia[1]" placeholder="Introduzca una URL a la imagen">
+      
+      <label for="comentarios">Comentarios</label>
+      <input class="form-control" id="comentarios" name="comentarios" [(ngModel)]="sesion.descripcion" placeholder="Comentarios respecto a la sesión de entrenamiento (satisfacción, molestias...)">
+
+      <label for="pulsaciones">Pulsaciones</label>
+      <input class="form-control" id="pulsaciones" name="pulsaciones" [(ngModel)]="sesion.datosSalud[0]" placeholder="Ritmo cardíaco promedio durante la sesión">
+      <label for="peso">Peso del usuario (kg)</label>
+      <input class="form-control" id="peso" name="peso" [(ngModel)]="sesion.datosSalud[1]" placeholder="Peso del usuario">
+      <label for="calorias">Calorías consumidas</label>
+      <input class="form-control" id="calorias" name="calorias" [(ngModel)]="sesion.datosSalud[2]" placeholder="Calorías consumidas estimadas">
+      
+      <div class="form-check">
+        <input class="form-check-input" id="presencial" name="presencial"[(ngModel)]="sesion.presencial" type="checkbox">
+        <label class="form-check-label" for="presencial?">Presencial</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="guardarSesion()">Guardar</button>
+  </div>

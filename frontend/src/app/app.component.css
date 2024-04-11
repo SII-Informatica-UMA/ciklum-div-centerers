@@ -1,0 +1,10 @@
+.imagen {width: 1400px;
+    height: 700px;}
+
+.col {font-weight: bold;}
+a {font-weight: bold;
+    color: aliceblue;
+}
+a:hover {color: rgba(240, 248, 255, 0.753);}
+* {color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.522);}

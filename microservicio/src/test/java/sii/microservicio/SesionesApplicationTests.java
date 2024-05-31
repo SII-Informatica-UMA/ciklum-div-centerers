@@ -28,7 +28,7 @@ import static org.assertj.core.api.Assertions.*;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@DisplayName("En el microservicio de gestión de sesiones")
+@DisplayName("En el microservicio de gestion de sesiones")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class SesionesApplicationTests {
 
@@ -76,7 +76,7 @@ class SesionesApplicationTests {
 	public class SesionesVacio {
 
 		@Test
-		@DisplayName("devuelve la lista de sesiones vacía")
+		@DisplayName("devuelve la lista de sesiones vacia")
 		public void devuelveSesiones() {
 			var peticion = creaURL("http", "localhost", port, "/sesion?plan=1");
 
@@ -93,7 +93,7 @@ class SesionesApplicationTests {
 		}
 
 		@Test
-		@DisplayName("se crea correctamente una nueva sesión")
+		@DisplayName("se crea correctamente una nueva sesion")
 		public void creaSesion() {
 			assertThat(sesionRepository.findByIdPlan(1L)).isEmpty();
 			Sesion ses = new Sesion();
@@ -116,7 +116,7 @@ class SesionesApplicationTests {
 		}
 
 		@Test
-		@DisplayName("devuelve error al buscar una sesión por su ID")
+		@DisplayName("devuelve error al buscar una sesion por su ID")
 		public void devuelveSesionPorID() {
 			long id = 1L;
 			var peticion = creaURL("http", "localhost", port, "/sesion/" + id);
@@ -134,7 +134,7 @@ class SesionesApplicationTests {
 		}
 
 		@Test
-		@DisplayName("devuelve error al intentar borrar una sesión por su ID")
+		@DisplayName("devuelve error al intentar borrar una sesion por su ID")
 		public void eliminaSesionPorID() {
 			long id = 1L;
 			var peticion = creaURL("http", "localhost", port, "/sesion/" + id);
@@ -152,7 +152,7 @@ class SesionesApplicationTests {
 		}
 
 		@Test
-		@DisplayName("devuelve error si no se pasa un idPlan al intentar crear una sesión")
+		@DisplayName("devuelve error si no se pasa un idPlan al intentar crear una sesion")
 		public void creaSesionErronea() {
 			assertThat(sesionRepository.findByIdPlan(1L)).isEmpty();
 			Sesion ses = new Sesion();
@@ -214,7 +214,7 @@ class SesionesApplicationTests {
 
 
 		@Test
-		@DisplayName("devuelve una sesión al buscarla por su ID")
+		@DisplayName("devuelve una sesion al buscarla por su ID")
 		public void devuelveSesionPorIDConDatos() {
 			String s = String.format("/sesion/%d", idSesionTest);
 			assertThat(s.endsWith(idSesionTest.toString()));
@@ -234,7 +234,7 @@ class SesionesApplicationTests {
 		}
 
 		@Test
-		@DisplayName("actualiza una sesión dado su ID")
+		@DisplayName("actualiza una sesion dado su ID")
 		public void actualizaSesionPorId() {
 			String s = String.format("/sesion/%d", idSesionTest);
 			assertThat(s.endsWith(idSesionTest.toString()));
@@ -263,7 +263,7 @@ class SesionesApplicationTests {
 		}
 
 		@Test
-		@DisplayName("elimina una sesión dado su ID")
+		@DisplayName("elimina una sesion dado su ID")
 		public void eliminaSesionPorId() {
 			String s = String.format("/sesion/%d", idSesionTest);
 			assertThat(s.endsWith(idSesionTest.toString()));
@@ -286,7 +286,7 @@ class SesionesApplicationTests {
 		}
 
 		@Test
-		@DisplayName("se crea correctamente una nueva sesión")
+		@DisplayName("se crea correctamente una nueva sesion")
 		public void creaSesion() {
 			assertThat(sesionRepository.findByIdPlan(33L)).isEmpty();
 			Sesion ses = new Sesion();

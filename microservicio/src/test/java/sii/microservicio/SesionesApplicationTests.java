@@ -257,7 +257,7 @@ class SesionesApplicationTests {
 			assertThat(respuesta.getBody()).isNotNull();
 
 			assertThat(sesionRepository.findById(idSesionTest)).isNotEmpty();
-			assertThat(sesionRepository.findById(idSesionTest)).isNotEqualTo(descInit);
+			assertThat(sesionRepository.findById(idSesionTest).get().getDescripcion()).isNotEqualTo(descInit);
 			assertThat(sesionRepository.findById(idSesionTest).get().getDescripcion()).isEqualTo("Descripcion nueva");
 
 		}
